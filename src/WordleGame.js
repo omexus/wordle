@@ -33,7 +33,7 @@ const WordleGame = () => {
       // clears the input field
       setCurrentGuess('');
 
-      if (currentGuess === solution) {
+      if (currentGuess.toLowerCase() === solution.toLowerCase()) {
         setIsGameOver(true);
         setMessage('You\'ve got it!');
       } else if (updatedGuesses[5] !== '') {
@@ -48,7 +48,6 @@ const WordleGame = () => {
   };
 
   const handleGuessChange = (e) => {
-    console.log("Current Guess: ", currentGuess)
     setCurrentGuess(e.target.value);
   };
 
@@ -57,7 +56,17 @@ const WordleGame = () => {
       <h1>Wordle Game</h1>
       <div className="guesses">
         {guesses.map((guess, index) => (
-          <div key={index} className="guess">{guess}</div>
+          <div key={index} className="guess">
+            {guess.split('').map((letter, i) => (
+              <span
+                key={i}
+                style={{color:
+                  letter.toLowerCase() === solution[i].toLowerCase() ? "green" : (solution.includes(letter.toLowerCase()) ? "mustard" : "grey")
+                }}
+              >{letter}
+              </span>
+            ))}
+          </div>
         ))}
       </div>
       {!isGameOver && (
@@ -71,11 +80,10 @@ const WordleGame = () => {
           <button onClick={handleGuess}>Guess Now!</button>
         </div>
       )}
-      <div className="message">{message}
-        <div className='message-play-again'>
-          {isGameOver && (
-              <button onClick={() => window.location.reload()}>Play Again</button>
-            )}
+      <div className="message">
+        {message}
+        <div className="message-play-again">
+          {isGameOver && <button onClick={() => window.location.reload()}>Play Again</button>}
         </div>
       </div>
     </div>
