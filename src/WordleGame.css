@@ -1,0 +1,50 @@
+.wordle-game {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .guesses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .guess {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  
+  .input-section {
+    margin-bottom: 20px;
+  }
+  
+  .input-section input {
+    font-size: 20px;
+    padding: 5px;
+    width: 110px;
+    text-align: center;
+  }
+  
+  .input-section button {
+    font-size: 20px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+
+  .message-play-again button {
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+  
+  .message {
+    font-size: 18px;
+    margin-top: 20px;
+    color: red;
+  }
