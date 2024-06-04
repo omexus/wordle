@@ -17,7 +17,9 @@ const WordleGame = () => {
     setSolution(solution);
   }, []);
 
-  const handleGuess = () => {
+  const handleGuess = (e) => {
+    e.preventDefault();
+
     if (currentGuess.length !== 5) {
       setMessage('Guess must be a 5-letter word.');
       return;
@@ -62,7 +64,7 @@ const WordleGame = () => {
               <span
                 key={i}
                 style={{color:
-                  letter.toLowerCase() === solution[i].toLowerCase() ? "green" : (solution.includes(letter.toLowerCase()) ? "mustard" : "grey")
+                  letter.toLowerCase() === solution[i].toLowerCase() ? "green" : (solution.toLowerCase().includes(letter.toLowerCase()) ? "yellow" : "grey")
                 }}
               >{letter}
               </span>
@@ -71,7 +73,7 @@ const WordleGame = () => {
         ))}
       </div>
       {!isGameOver && (
-        <div className="input-section">
+        <form className="input-section" onSubmit={handleGuess}>
           <input
             type="text"
             value={currentGuess}
@@ -79,7 +81,7 @@ const WordleGame = () => {
             maxLength="5"
           />
           <button onClick={handleGuess}>Guess Now!</button>
-        </div>
+        </form>
       )}
       <div className="message">
         {message}
