@@ -55,7 +55,7 @@ const WordleGame = () => {
   };
 
   return (
-    <div className="wordle-game">
+    <div className="the-game">
       <h1>Wordle Game</h1>
       <div className="guesses">
         {guesses.map((guess, index) => (
@@ -73,7 +73,7 @@ const WordleGame = () => {
         ))}
       </div>
       {!isGameOver && (
-        <form className="input-section" onSubmit={handleGuess}>
+        <form className="input-word" onSubmit={handleGuess}>
           <input
             type="text"
             value={currentGuess}

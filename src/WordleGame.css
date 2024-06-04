@@ -1,4 +1,4 @@
-.wordle-game {
+.the-game {
     text-align: center;
     font-family: Arial, sans-serif;
   }
@@ -19,18 +19,18 @@
     text-transform: uppercase;
   }
   
-  .input-section {
+  .input-word {
     margin-bottom: 20px;
   }
   
-  .input-section input {
+  .input-word input {
     font-size: 20px;
     padding: 5px;
     width: 110px;
     text-align: center;
   }
   
-  .input-section button {
+  .input-word button {
     font-size: 20px;
     padding: 5px 10px;
     margin-left: 10px;
