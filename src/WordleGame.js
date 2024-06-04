@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './WordleGame.css'; 
+import words from './words.json';
 
 const WordleGame = () => {
   const [guesses, setGuesses] = useState(['', '', '', '', '', '']);
@@ -10,8 +11,8 @@ const WordleGame = () => {
 
   useEffect(() => {
     // Set random solution words
-    const words = ['house', 'apple', 'movie', 'world', 'hello', 'happy', 'music', 'beach'];
-    const solution = words[Math.floor(Math.random() * words.length)];
+    const w = words.words;
+    const solution = w[Math.floor(Math.random() * w.length)];
     console.log(solution);
     setSolution(solution);
   }, []);
